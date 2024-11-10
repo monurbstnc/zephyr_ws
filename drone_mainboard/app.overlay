@@ -1,0 +1,34 @@
+
+/*  
+icm42670
+AP_AD0 -> GND so address is
+1101000 (7 bit)  (1101000 <<1) : 0x68
+
+bmp388
+SDO-> GND so address is
+1110110 7 bit (1110110 <<1) :  0xEC
+*/
+&i2c0 {
+    icm42670_device: icm42670@68 {
+            compatible = "invensense,icm42670";
+            label = "IMU";
+            /* reg is the I2C device address.
+             * It must match the node's unit address. */
+            reg = <0x68>;
+
+            /* Configure other I2C device properties as needed.
+             * Find your device's DT binding for details. */
+    };
+
+    bmp388_device: bmp388@ec {
+        compatible = "bosch,bmp388";
+        label = "Digital Pressure Sensor";
+        /* reg is the I2C device address.
+         * It must match the node's unit address. */
+        reg = <0xEC>;
+
+        /* Configure other I2C device properties as needed.
+         * Find your device's DT binding for details. */
+    };
+};
+
