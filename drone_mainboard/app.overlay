@@ -15,6 +15,7 @@ SDO-> GND so address is
             /* reg is the I2C device address.
              * It must match the node's unit address. */
             reg = <0x68>;
+            status = "okay";
 
             /* Configure other I2C device properties as needed.
              * Find your device's DT binding for details. */
@@ -29,6 +30,8 @@ SDO-> GND so address is
 
         /* Configure other I2C device properties as needed.
          * Find your device's DT binding for details. */
+        status = "okay";
+        
     };
 };
 
