@@ -9,7 +9,6 @@ SDO-> GND so address is
 1110110 7 bit (1110110 <<1) :  0xEC
 */
 &i2c0 {
-    status = "okay";
     icm42670_device: icm42670@68 {
             compatible = "invensense,icm42670";
             /* reg is the I2C device address.
