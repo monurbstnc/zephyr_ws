@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20.0)
-set(BOARD nrf52dk_nrf52810)
+set(BOARD nrf52dk/nrf52810)
 set(CONF_FILE "prj.conf")
 set(DTC_OVERLAY_FILE "app.overlay")
 find_package(Zephyr)

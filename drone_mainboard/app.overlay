@@ -9,9 +9,9 @@ SDO-> GND so address is
 1110110 7 bit (1110110 <<1) :  0xEC
 */
 &i2c0 {
+    status = "okay";
     icm42670_device: icm42670@68 {
             compatible = "invensense,icm42670";
-            label = "IMU";
             /* reg is the I2C device address.
              * It must match the node's unit address. */
             reg = <0x68>;
@@ -19,11 +19,14 @@ SDO-> GND so address is
 
             /* Configure other I2C device properties as needed.
              * Find your device's DT binding for details. */
+            accel-hz = <100>; 
+            gyro-hz = <100>;
+            accel-fs = <8>;
+            gyro-fs = <500>;
     };
 
     bmp388_device: bmp388@ec {
         compatible = "bosch,bmp388";
-        label = "Digital Pressure Sensor";
         /* reg is the I2C device address.
          * It must match the node's unit address. */
         reg = <0xEC>;
