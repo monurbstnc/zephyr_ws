@@ -81,6 +81,11 @@
     status = "disabled";
 };
 
+/*
+GPIO_ACTIVE_HIGH : Led turns on when high.(3 Volt)
+GPIO_ACTIVE_LOW: Led turns on when low (0 Volt)
+
+*/
 &led0{
     gpios = <&gpio0 25 GPIO_ACTIVE_HIGH>;
 	label = "Green LED";
