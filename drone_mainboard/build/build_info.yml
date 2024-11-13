@@ -47,7 +47,7 @@ cmake:
     nordic:
       svdfile: /home/onur/zephyrproject/modules/hal/nordic/nrfx/mdk/nrf52810.svd
   zephyr:
-    version: 4.0.0-rc2
+    version: 4.0.0-rc3
     zephyr-base: /home/onur/zephyrproject/zephyr
 version: 0.1.0
 west:

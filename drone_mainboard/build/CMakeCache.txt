@@ -455,9 +455,9 @@ CMAKE_CACHEFILE_DIR:INTERNAL=/home/onur/zephyr_ws/drone_mainboard/build
 //Major version of cmake used to create the current loaded cache
 CMAKE_CACHE_MAJOR_VERSION:INTERNAL=3
 //Minor version of cmake used to create the current loaded cache
-CMAKE_CACHE_MINOR_VERSION:INTERNAL=30
+CMAKE_CACHE_MINOR_VERSION:INTERNAL=28
 //Patch version of cmake used to create the current loaded cache
-CMAKE_CACHE_PATCH_VERSION:INTERNAL=2
+CMAKE_CACHE_PATCH_VERSION:INTERNAL=3
 //Path to CMake executable.
 CMAKE_COMMAND:INTERNAL=/usr/bin/cmake
 //Path to cpack program executable.
@@ -550,7 +550,7 @@ CMAKE_RANLIB-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_READELF
 CMAKE_READELF-ADVANCED:INTERNAL=1
 //Path to CMake installation.
-CMAKE_ROOT:INTERNAL=/usr/share/cmake-3.30
+CMAKE_ROOT:INTERNAL=/usr/share/cmake-3.28
 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS
 CMAKE_SHARED_LINKER_FLAGS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS_DEBUG
@@ -606,8 +606,8 @@ _Python3_Compiler_REASON_FAILURE:INTERNAL=
 _Python3_Development_REASON_FAILURE:INTERNAL=
 _Python3_EXECUTABLE:INTERNAL=/home/onur/zephyrproject/.venv/bin/python3
 //Python3 Properties
-_Python3_INTERPRETER_PROPERTIES:INTERNAL=Python;3;12;3;64;<none>;cpython-312-x86_64-linux-gnu.so;abi3;/usr/lib/python3.12;/home/onur/zephyrproject/.venv/lib/python3.12;/home/onur/zephyrproject/.venv/lib/python3.12/site-packages;/home/onur/zephyrproject/.venv/lib/python3.12/site-packages
-_Python3_INTERPRETER_SIGNATURE:INTERNAL=11326dde01585bd5bc4fe8ed6397822d
+_Python3_INTERPRETER_PROPERTIES:INTERNAL=Python;3;12;3;64;;cpython-312-x86_64-linux-gnu.so;abi3;/usr/lib/python3.12;/home/onur/zephyrproject/.venv/lib/python3.12;/home/onur/zephyrproject/.venv/lib/python3.12/site-packages;/home/onur/zephyrproject/.venv/lib/python3.12/site-packages
+_Python3_INTERPRETER_SIGNATURE:INTERNAL=78d1cfa4e43aaa72c8b19d596e66b82b
 //NumPy reason failure
 _Python3_NumPy_REASON_FAILURE:INTERNAL=
 

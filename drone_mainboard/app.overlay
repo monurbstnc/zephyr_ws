@@ -1,39 +1,97 @@
+ 
+    /*  
+    icm42670
+    AP_AD0 -> GND so address is
+    1101000 (7 bit)  (1101000 <<1) : 0x68
 
-/*  
-icm42670
-AP_AD0 -> GND so address is
-1101000 (7 bit)  (1101000 <<1) : 0x68
+    bmp388
+    SDO-> GND so address is
+    1110110 7 bit (1110110 <<1) :  0xEC
+    */
+    &i2c0 {
+        icm42670_device: icm42670@68 {
+                compatible = "invensense,icm42670";
+                /* reg is the I2C device address.
+                 * It must match the node's unit address. */
+                reg = <0x68>;
+                status = "okay";
 
-bmp388
-SDO-> GND so address is
-1110110 7 bit (1110110 <<1) :  0xEC
-*/
-&i2c0 {
-    icm42670_device: icm42670@68 {
-            compatible = "invensense,icm42670";
+                /* Configure other I2C device properties as needed.
+                 * Find your device's DT binding for details. */
+                accel-hz = <100>; 
+                gyro-hz = <100>;
+                accel-fs = <8>;
+                gyro-fs = <1000>;
+        };
+
+        bmp388_device: bmp388@ec {
+            compatible = "bosch,bmp388";
             /* reg is the I2C device address.
              * It must match the node's unit address. */
-            reg = <0x68>;
-            status = "okay";
+            reg = <0xEC>;
 
             /* Configure other I2C device properties as needed.
              * Find your device's DT binding for details. */
-            accel-hz = <100>; 
-            gyro-hz = <100>;
-            accel-fs = <8>;
-            gyro-fs = <500>;
+            status = "okay";
+
+        };
     };
 
-    bmp388_device: bmp388@ec {
-        compatible = "bosch,bmp388";
-        /* reg is the I2C device address.
-         * It must match the node's unit address. */
-        reg = <0xEC>;
-
-        /* Configure other I2C device properties as needed.
-         * Find your device's DT binding for details. */
-        status = "okay";
-        
+    &uart0 {
+        status = "disabled";
     };
+
+    &spi0 {
+        status = "disabled";
+    };
+
+    &pinctrl {
+        i2c0_default: i2c0_default {
+    		group1 {
+    			psels = <NRF_PSEL(TWIM_SDA, 0, 4)>,
+    				    <NRF_PSEL(TWIM_SCL, 0, 5)>;
+    		};
+    	};
+
+    	i2c0_sleep: i2c0_sleep {
+    		group1 {
+    			psels = <NRF_PSEL(TWIM_SDA, 0, 4)>,
+    				    <NRF_PSEL(TWIM_SCL, 0, 5)>;
+    			low-power-enable;
+    		};
+    	};
+    };
+
+
+
+/{
+    aliases {
+        /delete-property/ sw0;
+        /delete-property/ sw1;
+        /delete-property/ sw2;
+        /delete-property/ sw3;
+        /delete-property/ mcuboot-button0;
+    };
+
+    /delete-node/ buttons;
+
 };
 
+&adc {
+    status = "disabled";
+};
+
+&led0{
+    gpios = <&gpio0 25 GPIO_ACTIVE_HIGH>;
+	label = "Green LED";
+};
+
+&led1{
+    gpios = <&gpio0 28 GPIO_ACTIVE_HIGH>;
+	label = "Blue LED";
+};
+
+&led2{
+    gpios = <&gpio0 16 GPIO_ACTIVE_HIGH>;
+	label = "Red LED";
+};

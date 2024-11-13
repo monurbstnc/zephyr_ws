@@ -729,30 +729,92 @@
 # 0 "<command-line>" 2
 # 1 "./app.overlay" 1
 # 11 "./app.overlay"
-&i2c0 {
-    icm42670_device: icm42670@68 {
-            compatible = "invensense,icm42670";
+    &i2c0 {
+        icm42670_device: icm42670@68 {
+                compatible = "invensense,icm42670";
 
 
-            reg = <0x68>;
+                reg = <0x68>;
+                status = "okay";
 
 
 
-            accel-hz = <100>;
-            gyro-hz = <100>;
-            accel-fs = <8>;
-            gyro-fs = <500>;
+                accel-hz = <100>;
+                gyro-hz = <100>;
+                accel-fs = <8>;
+                gyro-fs = <1000>;
+        };
+
+        bmp388_device: bmp388@ec {
+            compatible = "bosch,bmp388";
+
+
+            reg = <0xEC>;
+
+
+
+            status = "okay";
+
+        };
     };
 
-    bmp388_device: bmp388@ec {
-        compatible = "bosch,bmp388";
-
-
-        reg = <0xEC>;
-
-
-
+    &uart0 {
+        status = "disabled";
     };
+
+    &spi0 {
+        status = "disabled";
+    };
+
+    &pinctrl {
+        i2c0_default: i2c0_default {
+      group1 {
+       psels = <((((((0) * 32U) + (4)) & 0x1FFU) << 0U) | ((12U & 0xFFU) << 24U))>,
+            <((((((0) * 32U) + (5)) & 0x1FFU) << 0U) | ((11U & 0xFFU) << 24U))>;
+      };
+     };
+
+     i2c0_sleep: i2c0_sleep {
+      group1 {
+       psels = <((((((0) * 32U) + (4)) & 0x1FFU) << 0U) | ((12U & 0xFFU) << 24U))>,
+            <((((((0) * 32U) + (5)) & 0x1FFU) << 0U) | ((11U & 0xFFU) << 24U))>;
+       low-power-enable;
+      };
+     };
+    };
+
+
+
+/{
+    aliases {
+        /delete-property/ sw0;
+        /delete-property/ sw1;
+        /delete-property/ sw2;
+        /delete-property/ sw3;
+        /delete-property/ mcuboot-button0;
+    };
+
+    /delete-node/ buttons;
+
+};
+
+&adc {
+    status = "disabled";
+};
+
+&led0{
+    gpios = <&gpio0 25 (0 << 0)>;
+ label = "Green LED";
+};
+
+&led1{
+    gpios = <&gpio0 28 (0 << 0)>;
+ label = "Blue LED";
+};
+
+&led2{
+    gpios = <&gpio0 16 (0 << 0)>;
+ label = "Red LED";
 };
 # 0 "<command-line>" 2
 # 1 "/home/onur/zephyrproject/zephyr/misc/empty_file.c"

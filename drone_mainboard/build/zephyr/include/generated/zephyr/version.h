@@ -15,11 +15,11 @@
 #define KERNEL_VERSION_MINOR            0
 #define KERNEL_PATCHLEVEL               0
 #define KERNEL_TWEAK                    0
-#define KERNEL_VERSION_STRING           "4.0.0-rc2"
-#define KERNEL_VERSION_EXTENDED_STRING  "4.0.0-rc2+0"
+#define KERNEL_VERSION_STRING           "4.0.0-rc3"
+#define KERNEL_VERSION_EXTENDED_STRING  "4.0.0-rc3+0"
 #define KERNEL_VERSION_TWEAK_STRING     "4.0.0+0"
 
-#define BUILD_VERSION v4.0.0-rc2-134-gfaf075a9d4d2
+#define BUILD_VERSION v4.0.0-rc3-4-g65511eacf9d1
 
 
 #endif /* _KERNEL_VERSION_H_ */

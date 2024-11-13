@@ -11,3 +11,7 @@ mainmenu "example app"
 # to 'source' relative to the current Kconfig file instead, use 'rsource' (or a
 # path relative to the Zephyr root).
 source "Kconfig.zephyr"
+
+config ICM42670
+	bool "Enable icm42670"
+	default n
