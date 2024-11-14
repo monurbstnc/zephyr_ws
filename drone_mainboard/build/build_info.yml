@@ -1,0 +1,56 @@
+cmake:
+  application:
+    configuration-dir: /home/onur/zephyr_ws/drone_mainboard
+    source-dir: /home/onur/zephyr_ws/drone_mainboard
+  board:
+    name: nrf52dk
+    qualifiers: nrf52810
+    revision: 
+  devicetree:
+    bindings-dirs:
+     - /home/onur/zephyrproject/zephyr/dts/bindings
+    files:
+     - /home/onur/zephyrproject/zephyr/boards/nordic/nrf52dk/nrf52dk_nrf52810.dts
+     - app.overlay
+    include-dirs:
+     - /home/onur/zephyrproject/modules/hal/atmel/include
+     - /home/onur/zephyrproject/modules/hal/gigadevice/include
+     - /home/onur/zephyrproject/modules/hal/microchip/dts
+     - /home/onur/zephyrproject/modules/hal/nuvoton/dts
+     - /home/onur/zephyrproject/modules/hal/nxp/dts
+     - /home/onur/zephyrproject/modules/hal/stm32/dts
+     - /home/onur/zephyrproject/zephyr/include
+     - /home/onur/zephyrproject/zephyr/include/zephyr
+     - /home/onur/zephyrproject/zephyr/dts/common
+     - /home/onur/zephyrproject/zephyr/dts/x86
+     - /home/onur/zephyrproject/zephyr/dts/xtensa
+     - /home/onur/zephyrproject/zephyr/dts/sparc
+     - /home/onur/zephyrproject/zephyr/dts/riscv
+     - /home/onur/zephyrproject/zephyr/dts/posix
+     - /home/onur/zephyrproject/zephyr/dts/nios2
+     - /home/onur/zephyrproject/zephyr/dts/arm64
+     - /home/onur/zephyrproject/zephyr/dts/arm
+     - /home/onur/zephyrproject/zephyr/dts/arc
+     - /home/onur/zephyrproject/zephyr/dts
+    user-files:
+     - app.overlay
+  kconfig:
+    files:
+     - /home/onur/zephyrproject/zephyr/boards/nordic/nrf52dk/nrf52dk_nrf52810_defconfig
+     - /home/onur/zephyr_ws/drone_mainboard/prj.conf
+    user-files:
+     - prj.conf
+  toolchain:
+    name: zephyr
+    path: /home/onur/zephyr-sdk-0.17.0
+  vendor-specific:
+    nordic:
+      svdfile: /home/onur/zephyrproject/modules/hal/nordic/nrfx/mdk/nrf52810.svd
+  zephyr:
+    version: 4.0.0-rc3
+    zephyr-base: /home/onur/zephyrproject/zephyr
+version: 0.1.0
+west:
+  command: /home/onur/zephyrproject/.venv/bin/west build -p
+  topdir: /home/onur/zephyrproject
+  version: 1.3.0

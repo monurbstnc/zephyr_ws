@@ -16,15 +16,17 @@ static const int accel_hz = DT_PROP(ICM42670_NODE, accel_hz);
 static const int gyro_hz = DT_PROP(ICM42670_NODE, gyro_hz);
 static const int accel_fs = DT_PROP(ICM42670_NODE, accel_fs);
 static const int gyro_fs = DT_PROP(ICM42670_NODE, gyro_fs);
-static const int device_address = DT_PROP(ICM42670_NODE, reg);
+
 const struct i2c_dt_spec icm42670_dev = I2C_DT_SPEC_GET(ICM42670_NODE);
 
 
 #define REDLED_NODE DT_ALIAS(led2)
 static const struct gpio_dt_spec red_led = GPIO_DT_SPEC_GET(REDLED_NODE, gpios);
 
-#define GREENLED_NODE DT_ALIAS(led2)
+#define GREENLED_NODE DT_ALIAS(led0)
 static const struct gpio_dt_spec green_led = GPIO_DT_SPEC_GET(GREENLED_NODE, gpios);
+
+
 
 
 int main()
