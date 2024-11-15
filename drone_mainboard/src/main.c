@@ -81,6 +81,13 @@ int main()
 		gpio_pin_set_dt(&green_led,0);
 	}
 
+	ICM42670_accelData accel_data;
+	while(true)
+	{
+		icm42670_get_acceldata(&icm42670_dev,&accel_data);
+		k_msleep(50);
+	}
+
 
 
     return 0;

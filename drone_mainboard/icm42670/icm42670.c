@@ -249,5 +249,32 @@ ICM42670_err_t icm42670_init(const struct i2c_dt_spec *dev_i2c)
 }
 
 
+void icm42670_get_acceldata(const struct i2c_dt_spec* dev_i2c,ICM42670_accelData* accelData)
+{
+    // We select 8g which is ACCEL_UI_FS_SEL=1 -> 4,096 LSB/g
+    uint8_t reg_value1 = 0;
+    uint8_t reg_value0 = 0;
+    i2c_reg_read_byte_dt(dev_i2c,ACCEL_DATA_X1,&reg_value1);
+    i2c_reg_read_byte_dt(dev_i2c,ACCEL_DATA_X0,&reg_value0);
+    accelData->accel_x = ((reg_value1 << 8) | reg_value0) / ACCEL_SENS; 
+
+    //clear 
+    reg_value0 = 0;
+    reg_value1 = 0;
+    i2c_reg_read_byte_dt(dev_i2c,ACCEL_DATA_Y1,&reg_value1);
+    i2c_reg_read_byte_dt(dev_i2c,ACCEL_DATA_Y0,&reg_value0);
+    accelData->accel_y = ((reg_value1 << 8) | reg_value0) / ACCEL_SENS; 
+
+        //clear 
+    reg_value0 = 0;
+    reg_value1 = 0;
+    i2c_reg_read_byte_dt(dev_i2c,ACCEL_DATA_Z1,&reg_value1);
+    i2c_reg_read_byte_dt(dev_i2c,ACCEL_DATA_Z0,&reg_value0);
+    accelData->accel_z = ((reg_value1 << 8) | reg_value0) / ACCEL_SENS; 
+
+
+
+
+}
 
 
