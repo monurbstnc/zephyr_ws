@@ -202,7 +202,7 @@ static ICM42670_err_t icm42670_power_on(const struct i2c_dt_spec *dev_i2c)
 
 ICM42670_err_t icm42670_init(const struct i2c_dt_spec *dev_i2c)
 {
-    k_msleep(40);
+    k_msleep(200);
     uint8_t reg_value;
     int ret;
     if(icm42670_check_mclck(dev_i2c) != ICM42670_OK)
@@ -219,7 +219,6 @@ ICM42670_err_t icm42670_init(const struct i2c_dt_spec *dev_i2c)
     */
     if(ret != 0 || reg_value != 0x67)
     {
-        printk("Unexpected WHO_AM_I response: 0x%02x\n", reg_value);
         return ICM42670_ERR;
     }
 
@@ -241,7 +240,11 @@ ICM42670_err_t icm42670_init(const struct i2c_dt_spec *dev_i2c)
     {
         return ICM42670_ERR;
     }
-  
+
+    reg_value = 0;
+    
+    
+
     return ICM42670_OK;
 }
 

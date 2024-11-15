@@ -62,12 +62,26 @@ int main()
 	if(icm42670_init(&icm42670_dev) != ICM42670_OK)
 	{
 		gpio_pin_set_dt(&red_led,1);
+		k_msleep(1000);
+		gpio_pin_set_dt(&red_led,0);
+		k_msleep(1000);
+		gpio_pin_set_dt(&red_led,1);
+		k_msleep(1000);
+		gpio_pin_set_dt(&red_led,0);
 		return -1;
 	}
+	else
+	{
+		gpio_pin_set_dt(&green_led,1);
+		k_msleep(1000);
+		gpio_pin_set_dt(&green_led,0);
+		k_msleep(1000);
+		gpio_pin_set_dt(&green_led,1);
+		k_msleep(1000);
+		gpio_pin_set_dt(&green_led,0);
+	}
 
-	gpio_pin_set_dt(&green_led,1);
-	k_msleep(2000);
-	gpio_pin_set_dt(&green_led,0);
+
 
     return 0;
 }
