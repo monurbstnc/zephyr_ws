@@ -6,15 +6,27 @@
 #include <zephyr/devicetree.h>
 #include <zephyr/drivers/i2c.h>
 
-#define MCLK_RDY    0x00
-#define PWR_MGMT0   0x1F
-#define WHO_AM_I    0x75
+#define ICM42670_NODE DT_NODELABEL(icm42670_device)
+
+#define MCLK_RDY        0x00
+#define GYRO_CONFIG0    0x20
+#define ACCEL_CONFIG0   0x21
+#define GYRO_CONFIG1    0x23
+#define ACCEL_CONFIG1   0x24
+#define PWR_MGMT0       0x1F
+#define WHO_AM_I        0x75
 
 
 typedef enum
 {
     ICM42670_OK,
-    ICM42670_ERR
+    ICM42670_ERR,
+    ICM42670_GYROCFG_ERR,
+    ICM42670_GYROCFG_OK,
+    ICM42670_ACCELCFG_ERR,
+    ICM42670_ACCELCFG_OK,
+    ICM42670_POWER_OK,
+    ICM42670_POWER_ERR
 }ICM42670_err_t;
 
 typedef struct
@@ -36,7 +48,7 @@ typedef struct
     float temperature;
 } ICM42670_tempData;
 
-static ICM42670_err_t icm42670_check_mclck(const struct i2c_dt_spec* dev_i2c);
+
 ICM42670_err_t icm42670_init(const struct i2c_dt_spec* dev_i2c);
 
 #endif

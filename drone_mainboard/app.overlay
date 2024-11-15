@@ -18,8 +18,8 @@
 
                 /* Configure other I2C device properties as needed.
                  * Find your device's DT binding for details. */
-                accel-hz = <100>; 
-                gyro-hz = <100>;
+                accel-hz = <400>; 
+                gyro-hz = <400>;
                 accel-fs = <8>;
                 gyro-fs = <1000>;
         };

@@ -1,5 +1,9 @@
 {
     "files.associations": {
-        "icm42670.h": "c"
+        "icm42670.h": "c",
+        "gpio.h": "c",
+        "devicetree.h": "c",
+        "i2c.h": "c",
+        "kernel.h": "c"
     }
 }

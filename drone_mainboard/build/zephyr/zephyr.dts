@@ -140,8 +140,8 @@
 				compatible = "invensense,icm42670";
 				reg = < 0x68 >;
 				status = "okay";
-				accel-hz = < 0x64 >;
-				gyro-hz = < 0x64 >;
+				accel-hz = < 0x190 >;
+				gyro-hz = < 0x190 >;
 				accel-fs = < 0x8 >;
 				gyro-fs = < 0x3e8 >;
 			};

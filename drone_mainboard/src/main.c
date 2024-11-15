@@ -3,19 +3,15 @@
 #include <zephyr/drivers/gpio.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <zephyr/logging/log.h>
+
 
 #ifdef CONFIG_ICM42670
 #include "../icm42670/icm42670.h"
 #endif
 
-#define ICM42670_NODE DT_NODELABEL(icm42670_device)
 
-// Reading device tree properties
-static const int accel_hz = DT_PROP(ICM42670_NODE, accel_hz);
-static const int gyro_hz = DT_PROP(ICM42670_NODE, gyro_hz);
-static const int accel_fs = DT_PROP(ICM42670_NODE, accel_fs);
-static const int gyro_fs = DT_PROP(ICM42670_NODE, gyro_fs);
+
+
 
 const struct i2c_dt_spec icm42670_dev = I2C_DT_SPEC_GET(ICM42670_NODE);
 
